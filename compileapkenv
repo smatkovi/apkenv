@@ -2,9 +2,6 @@
    export TOOLCHAIN=$MADDE_ROOT/toolchains/arm-2009q3-67-arm-none-linux-gnueabi-x86_64-unknown-linux-gnu/arm-2009q3-67
    export SYSROOT=$MADDE_ROOT/sysroots/harmattan_sysroot_10.2011.34-1_slim
    export PATH=$TOOLCHAIN/bin:$PATH
-cd ~/Downloads/apkenv-master
-cp ~/Downloads/xplane.c modules/xplane.c
-cp ~/Downloads/jnienv.c jni/jnienv.c
 
 rm -f modules/xplane.o jni/jnienv.o apkenv
 make PLATFORM=harmattan \
