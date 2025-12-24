@@ -1274,14 +1274,11 @@ soinfo *apkenv_find_library(const char *name)
         }
     }
 
-    printf("DEBUG find_library: calling load_library for %s\n", name); fflush(stdout);
     TRACE("[ %5d '%s' has not been loaded yet.  Locating...]\n", apkenv_pid, name);
     si = apkenv_load_library(name);
-    printf("DEBUG find_library: load_library returned %p\n", (void*)si); fflush(stdout);
     if(si == NULL)
         return NULL;
     return apkenv_init_library(si);
-    printf("DEBUG find_library: calling init_library\n"); fflush(stdout);
 }
 
 /* TODO:
@@ -1369,7 +1366,7 @@ static int apkenv_reloc_library(soinfo *si, Elf32_Rel *rel, unsigned count)
             sym_name = (char *)(strtab + symtab[sym].st_name);
             sym_addr = 0;
             if ((sym_addr = (unsigned)apkenv_get_hooked_symbol(sym_name, 1)) != 0) {
-               if(strstr(sym_name,"inflate") || strstr(sym_name,"deflate") || strstr(sym_name,"crc32") || strstr(sym_name,"AAsset")) { printf("HOOKED: %s -> %s at %x\n", si->name, sym_name, sym_addr); fflush(stdout); }
+               LINKER_DEBUG_PRINTF("%s hooked symbol %s to %x\n", si->name, sym_name, sym_addr);
             }
             else
             {

@@ -77,7 +77,7 @@ AAssetManager_open(struct AAssetManager *manager, const char *filename, uint32_t
 
     if (mode != AASSET_MODE_STREAMING) {
         fprintf(stderr, "Unsupported mode: %x\n", mode);
-        exit(1);
+        // exit(1); -- disabled for X-Plane
     }
 
     char *buf;
@@ -86,7 +86,7 @@ AAssetManager_open(struct AAssetManager *manager, const char *filename, uint32_t
     char *tmp;
     if (asprintf(&tmp, "assets/%s", filename) == -1) {
         fprintf(stderr, "Could not format asset path\n");
-        exit(1);
+        // exit(1); -- disabled for X-Plane
     }
     enum ApkResult res = apk_read_file(manager->apk, tmp, &buf, &len);
     free(tmp);
@@ -144,35 +144,35 @@ struct AConfiguration *
 AConfiguration_new(void)
 {
     fprintf(stderr, "AConfiguration_new()\n");
-    exit(1);
+    // exit(1); -- disabled for X-Plane
 }
 
 void
 AConfiguration_fromAssetManager(struct AConfiguration *out, struct AAssetManager *am)
 {
     fprintf(stderr, "AConfiguration_fromAssetManager(out=%p, am=%p)\n", out, am);
-    exit(1);
+    // exit(1); -- disabled for X-Plane
 }
 
 void
 AConfiguration_getLanguage(struct AConfiguration *config, char *outLanguage)
 {
     fprintf(stderr, "AConfiguration_getLanguage(config=%p, outLanguage=%p)\n", config, outLanguage);
-    exit(1);
+    // exit(1); -- disabled for X-Plane
 }
 
 void
 AConfiguration_getCountry(struct AConfiguration *config, char *outCountry)
 {
     fprintf(stderr, "AConfiguration_getCountry(config=%p, outCountry=%p)\n", config, outCountry);
-    exit(1);
+    // exit(1); -- disabled for X-Plane
 }
 
 void
 AConfiguration_delete(struct AConfiguration *config)
 {
     fprintf(stderr, "AConfiguration_delete(config=%p)\n", config);
-    exit(1);
+    // exit(1); -- disabled for X-Plane
 }
 
 static void
@@ -221,7 +221,7 @@ struct ALooper *
 ALooper_prepare(int opts)
 {
     fprintf(stderr, "ALooper_prepare(opts=%d)\n", opts);
-    exit(1);
+    // exit(1); -- disabled for X-Plane
 
     return NULL;
 }
@@ -232,7 +232,7 @@ ALooper_addFd(struct ALooper *looper, int fd, int ident, int events,
 {
     fprintf(stderr, "ALooper_addFd(looper=%p, fd=%d, ident=%d, events=%d, callback=%p, data=%p)\n",
             looper, fd, ident, events, callback, data);
-    exit(1);
+    // exit(1); -- disabled for X-Plane
 
     return -1;
 }
@@ -274,7 +274,7 @@ void
 AInputQueue_detachLooper(struct AInputQueue *queue)
 {
     fprintf(stderr, "AInputQueue_detachLooper(queue=%p)\n", queue);
-    exit(1);
+    // exit(1); -- disabled for X-Plane
 }
 
 void
@@ -283,14 +283,14 @@ AInputQueue_attachLooper(struct AInputQueue *queue, struct ALooper *looper,
 {
     fprintf(stderr, "AInputQueue_attachLooper(queue=%p, looper=%p, ident=%d, callback=%p, data=%p)\n",
             queue, looper, ident, callback, data);
-    exit(1);
+    // exit(1); -- disabled for X-Plane
 }
 
 int32_t
 AInputQueue_getEvent(struct AInputQueue *queue, struct AInputEvent **outEvent)
 {
     fprintf(stderr, "AInputQueue_getEvent(queue=%p, outEvent=%p)\n", queue, outEvent);
-    exit(1);
+    // exit(1); -- disabled for X-Plane
 
     return 0;
 }
@@ -299,7 +299,7 @@ int32_t
 AInputQueue_preDispatchEvent(struct AInputQueue *queue, struct AInputEvent *event)
 {
     fprintf(stderr, "AInputQueue_preDispatchEvent(queue=%p, event=%p)\n", queue, event);
-    exit(1);
+    // exit(1); -- disabled for X-Plane
 
     return 0;
 }
@@ -308,7 +308,7 @@ void
 AInputQueue_finishEvent(struct AInputQueue *queue, struct AInputEvent *event, int handled)
 {
     fprintf(stderr, "AInputQueue_finishEvent(queue=%p, event=%p, handled=%d)\n", queue, event, handled);
-    exit(1);
+    // exit(1); -- disabled for X-Plane
 }
 
 void

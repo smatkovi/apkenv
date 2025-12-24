@@ -1,0 +1,150 @@
+	DEP	apkenv.d
+	DEP	linker/dlfcn.d
+	DEP	linker/linker.d
+	DEP	linker/linker_environ.d
+	DEP	linker/rt.d
+	DEP	linker/strlcpy.d
+	DEP	compat/android_wrappers.d
+	DEP	compat/egl_wrappers.d
+	DEP	compat/gles2_wrappers.d
+	DEP	compat/gles_wrappers.d
+	DEP	compat/hooks.d
+	DEP	compat/hooks_shm.d
+	DEP	compat/libc_wrappers.d
+	DEP	compat/liblog_wrappers.d
+	DEP	compat/linux_wrappers.d
+	DEP	compat/pthread_wrappers.d
+	DEP	apklib/apklib.d
+	DEP	apklib/ioapi.d
+	DEP	apklib/ioapi_mem.d
+	DEP	apklib/unzip.d
+	DEP	jni/jnienv.d
+	DEP	jni/shlib.d
+	DEP	imagelib/imagelib.d
+	DEP	debug/debug.d
+	DEP	debug/wrappers.d
+	DEP	debug/wrappers/wrapper_code_arm.d
+	DEP	debug/wrappers/wrapper_code_generic_arm.d
+	DEP	debug/wrappers/wrapper_code_thumb.d
+	DEP	accelerometer/accelerometer.d
+	DEP	audio/audio.d
+	DEP	mixer/mixer.d
+	GEN	compat/gen/gles_serialize.c
+	DEP	compat/gen/gles_serialize.d
+	DEP	platform/common/input_transform.d
+	DEP	modules/angrybirds.d
+	DEP	modules/cuttherope.d
+	DEP	modules/fruitninja.d
+	DEP	modules/generic.d
+	DEP	modules/loonies.d
+	DEP	modules/marmalade.d
+	DEP	modules/nativeactivity.d
+	DEP	modules/openframeworks.d
+	DEP	modules/petalsredux.d
+	DEP	modules/trg2.d
+	DEP	modules/unity.d
+	DEP	modules/worldofgoo.d
+	CC	apkenv.o
+	CC	linker/dlfcn.o
+	CC	linker/linker.o
+	CC	linker/linker_environ.o
+	CC	linker/rt.o
+	CC	linker/strlcpy.o
+	CC	compat/android_wrappers.o
+	CC	compat/egl_wrappers.o
+	CC	compat/gles2_wrappers.o
+	CC	compat/gles_wrappers.o
+	CC	compat/hooks.o
+	CC	compat/hooks_shm.o
+	CC	compat/libc_wrappers.o
+	CC	compat/liblog_wrappers.o
+	CC	compat/linux_wrappers.o
+	CC	compat/pthread_wrappers.o
+In file included from compat/pthread_wrappers.c:32:
+compat/pthread_wrappers.h: In function 'my_pthread_mutexattr_settype':
+compat/pthread_wrappers.h:105: error: expected declaration specifiers before 'SOFTFP'
+In file included from compat/pthread_wrappers.c:33:
+/home/sebastian/QtSDK/Madde/sysroots/harmattan_sysroot_10.2011.34-1_slim/usr/include/sys/time.h:63: error: storage class specified for parameter '__timezone_ptr_t'
+/home/sebastian/QtSDK/Madde/sysroots/harmattan_sysroot_10.2011.34-1_slim/usr/include/sys/time.h:74: error: expected declaration specifiers or '...' before '__timezone_ptr_t'
+/home/sebastian/QtSDK/Madde/sysroots/harmattan_sysroot_10.2011.34-1_slim/usr/include/sys/time.h:74: error: storage class specified for parameter 'gettimeofday'
+/home/sebastian/QtSDK/Madde/sysroots/harmattan_sysroot_10.2011.34-1_slim/usr/include/sys/time.h:81: error: storage class specified for parameter 'settimeofday'
+/home/sebastian/QtSDK/Madde/sysroots/harmattan_sysroot_10.2011.34-1_slim/usr/include/sys/time.h:88: error: storage class specified for parameter 'adjtime'
+/home/sebastian/QtSDK/Madde/sysroots/harmattan_sysroot_10.2011.34-1_slim/usr/include/sys/time.h:120: error: storage class specified for parameter '__itimer_which_t'
+/home/sebastian/QtSDK/Madde/sysroots/harmattan_sysroot_10.2011.34-1_slim/usr/include/sys/time.h:127: error: expected ')' before '__which'
+/home/sebastian/QtSDK/Madde/sysroots/harmattan_sysroot_10.2011.34-1_slim/usr/include/sys/time.h:133: error: expected ')' before '__which'
+/home/sebastian/QtSDK/Madde/sysroots/harmattan_sysroot_10.2011.34-1_slim/usr/include/sys/time.h:141: error: storage class specified for parameter 'utimes'
+/home/sebastian/QtSDK/Madde/sysroots/harmattan_sysroot_10.2011.34-1_slim/usr/include/sys/time.h:146: error: storage class specified for parameter 'lutimes'
+/home/sebastian/QtSDK/Madde/sysroots/harmattan_sysroot_10.2011.34-1_slim/usr/include/sys/time.h:149: error: storage class specified for parameter 'futimes'
+/home/sebastian/QtSDK/Madde/sysroots/harmattan_sysroot_10.2011.34-1_slim/usr/include/sys/time.h:157: error: storage class specified for parameter 'futimesat'
+In file included from /home/sebastian/QtSDK/Madde/sysroots/harmattan_sysroot_10.2011.34-1_slim/usr/include/errno.h:36,
+                 from compat/pthread_wrappers.c:34:
+/home/sebastian/QtSDK/Madde/sysroots/harmattan_sysroot_10.2011.34-1_slim/usr/include/bits/errno.h:43: error: storage class specified for parameter '__errno_location'
+In file included from compat/pthread_wrappers.c:34:
+/home/sebastian/QtSDK/Madde/sysroots/harmattan_sysroot_10.2011.34-1_slim/usr/include/errno.h:55: error: storage class specified for parameter 'program_invocation_name'
+/home/sebastian/QtSDK/Madde/sysroots/harmattan_sysroot_10.2011.34-1_slim/usr/include/errno.h:55: error: storage class specified for parameter 'program_invocation_short_name'
+/home/sebastian/QtSDK/Madde/sysroots/harmattan_sysroot_10.2011.34-1_slim/usr/include/errno.h:69: error: storage class specified for parameter 'error_t'
+In file included from compat/hooks_shm.h:21,
+                 from compat/pthread_wrappers.c:61:
+/home/sebastian/QtSDK/Madde/toolchains/arm-2009q3-67-arm-none-linux-gnueabi-x86_64-unknown-linux-gnu/arm-2009q3-67/bin/../lib/gcc/arm-none-linux-gnueabi/4.4.1/include/stddef.h:149: error: storage class specified for parameter 'ptrdiff_t'
+In file included from compat/pthread_wrappers.c:61:
+compat/hooks_shm.h:23: error: storage class specified for parameter 'apkenv_shm_pointer_t'
+compat/hooks_shm.h:28: error: expected declaration specifiers before 'apkenv_shm_pointer_t'
+compat/hooks_shm.h:37: error: expected ')' before 'handle'
+compat/pthread_wrappers.c:65: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:77: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:89: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:101: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:110: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:119: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:137: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:155: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:165: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:178: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:184: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:190: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:196: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:202: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:208: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:214: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:220: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:226: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:237: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:248: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:254: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:260: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:266: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:272: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:278: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:290: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:309: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:336: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:362: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:387: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:408: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:434: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:465: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:479: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:507: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:530: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:550: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:571: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:605: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:639: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:689: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:699: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:711: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:718: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:733: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:764: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:781: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:795: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:801: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:808: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:814: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:820: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:827: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:833: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.c:848: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
+compat/pthread_wrappers.h:105: error: old-style parameter declarations in prototyped function definition
+compat/pthread_wrappers.c:851: error: expected '{' at end of input
+make: *** [makefile:104: compat/pthread_wrappers.o] Error 1

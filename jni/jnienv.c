@@ -35,6 +35,9 @@
 #include "jnienv.h"
 #include "../apkenv.h"
 
+/* Forward declarations */
+jstring JNIEnv_NewStringUTF(JNIEnv* p0, const char* p1);
+
 #ifdef APKENV_DEBUG
 #  define JNIENV_DEBUG_PRINTF(...) printf(__VA_ARGS__)
 #else
@@ -656,6 +659,9 @@ jobject
 JNIEnv_CallObjectMethod(JNIEnv* p0, jobject p1, jmethodID p2, ...)
 {
     JNIENV_DEBUG_PRINTF("JNIEnv_CallObjectMethod(%p, %s/%s, ...)\n", p1, p2->name, p2->sig);
+    if (strcmp(p2->name, "GetFilesPath") == 0) {
+        return JNIEnv_NewStringUTF(p0, "/home/user/.apkenv/xplane_data");
+    }
     return NULL;
 }
 
@@ -664,6 +670,9 @@ jobject
 JNIEnv_CallObjectMethodV(JNIEnv *env, jobject p1, jmethodID p2, va_list p3)
 {
     JNIENV_DEBUG_PRINTF("JNIEnv_CallObjectMethodV(%p, %s/%s, ...)\n", p1, p2->name, p2->sig);
+    if (strcmp(p2->name, "GetFilesPath") == 0) {
+        return JNIEnv_NewStringUTF(env, "/home/user/.apkenv/xplane_data");
+    }
     return GLOBAL_J(env);
 }
 
@@ -671,7 +680,10 @@ JNIEnv_CallObjectMethodV(JNIEnv *env, jobject p1, jmethodID p2, va_list p3)
 jobject
 JNIEnv_CallObjectMethodA(JNIEnv* p0, jobject p1, jmethodID p2, jvalue* p3)
 {
-    JNIENV_DEBUG_PRINTF("JNIEnv_CallObjectMethodA(%p, %s/%s, %p)\n", p1, p2->name, p2->sig, p3);
+    JNIENV_DEBUG_PRINTF("JNIEnv_CallObjectMethodA(%p, %s/%s, ...)\n", p1, p2->name, p2->sig);
+    if (strcmp(p2->name, "GetFilesPath") == 0) {
+        return JNIEnv_NewStringUTF(p0, "/home/user/.apkenv/xplane_data");
+    }
     return NULL;
 }
 
@@ -2442,16 +2454,16 @@ JNIEnv_NewDirectByteBuffer(JNIEnv* p0, void* p1, jlong p2)
 void*
 JNIEnv_GetDirectBufferAddress(JNIEnv* p0, jobject p1)
 {
-    JNIENV_DEBUG_PRINTF("JNIEnv_GetDirectBufferAddress()\n");
-    return NULL;
+    /* Return the buffer pointer directly - we pass our audio buffer as jobject */
+    return (void*)p1;
 }
 
 
 jlong
 JNIEnv_GetDirectBufferCapacity(JNIEnv* p0, jobject p1)
 {
-    JNIENV_DEBUG_PRINTF("JNIEnv_GetDirectBufferCapacity()\n");
-    return 0;
+    /* Return capacity in bytes (512 samples * 2 channels * 2 bytes = 2048) */
+    return 2048;
 }
 
 const char *

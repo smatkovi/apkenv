@@ -310,4 +310,15 @@ size_t my__strlen_chk(const char *s, size_t s_len);
 void my__FD_SET_chk(int fd, fd_set* set);
 void *my__memcpy_chk(void * dest, const void * src, size_t len, size_t destlen);
 
+/* C++ operators */
+void *my_Znwj(size_t size) SOFTFP;
+void *my_Znaj(size_t size) SOFTFP;
+void my_ZdlPv(void *ptr) SOFTFP;
+void my_ZdaPv(void *ptr) SOFTFP;
+int my___cxa_guard_acquire(int *guard) SOFTFP;
+void my___cxa_guard_release(int *guard) SOFTFP;
+void my___cxa_pure_virtual(void) SOFTFP;
+int my___aeabi_atexit(void *object, void (*destructor)(void *), void *dso_handle) SOFTFP;
+extern void *my___dso_handle;
+
 void libc_wrappers_init(void);

@@ -69,15 +69,19 @@ static void set_dlerror(int err)
 void *apkenv_android_dlopen(const char *filename, int flag)
 {
     soinfo *ret;
+    printf("DEBUG dlopen: find_library %s...\n", filename); fflush(stdout);
 
     pthread_mutex_lock(&apkenv_dl_lock);
+    printf("DEBUG dlopen: find_library returned %p\n", ret); fflush(stdout);
     ret = apkenv_find_library(filename);
 
     if (unlikely(ret == NULL)) {
         set_dlerror(DL_ERR_CANNOT_LOAD_LIBRARY);
     } else {
+    printf("DEBUG dlopen: calling constructors...\n"); fflush(stdout);
         apkenv_call_constructors_recursive(ret);
         ret->refcount++;
+    printf("DEBUG dlopen: constructors done\n"); fflush(stdout);
     }
     pthread_mutex_unlock(&apkenv_dl_lock);
     return ret;

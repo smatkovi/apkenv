@@ -1242,7 +1242,7 @@ void
 my_glPointSizePointerOES(GLenum type, GLsizei stride, const GLvoid *pointer)
 {
     WRAPPERS_DEBUG_PRINTF("glPointSizePointerOES()\n", type, stride, pointer);
-    /* No CALL */ printf("UNIMPLEMENTED: glPointSizePointerOES\n");
+    functions.glPointSizePointerOES(type, stride, pointer);
 }
 void
 my_glBlendEquationSeparateOES(GLenum modeRGB, GLenum modeAlpha)
@@ -1488,7 +1488,7 @@ void
 my_glPointSizexOES(GLfixed size)
 {
     WRAPPERS_DEBUG_PRINTF("glPointSizexOES()\n", size);
-    /* No CALL */ printf("UNIMPLEMENTED: glPointSizexOES\n");
+    functions.glPointSizex(size);
 }
 void
 my_glPolygonOffsetxOES(GLfixed factor, GLfixed units)

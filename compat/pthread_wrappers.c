@@ -1176,5 +1176,16 @@ int apkenv_my_pthread_create(pthread_t *thread, const pthread_attr_t *attr,
     //printf("XXX PTHREAD CREATE XXX\n");
     return pthread_create(thread, attr, start_wrapped_thread, (void*)wrapped);
 }
+
+}
 #endif
+
+int my_pthread_mutexattr_settype(pthread_mutexattr_t *attr, int type)
+{
+    // Stub - just return success
+    // X-Plane doesn't actually need this, it just checks if it exists
+    (void)attr;
+    (void)type;
+    return 0;
+}
 

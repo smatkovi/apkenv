@@ -161,6 +161,7 @@ init_module(apkenv_module_init_t init, const char *source)
     module->filename = strdup(source);
 
     int version = init(APKENV_MODULE_VERSION, module);
+    printf("DEBUG init_module: calling init for %s\n", source); fflush(stdout);
     switch (version) {
         case 0:
             printf("Cannot init module: %s\n", source);
@@ -843,7 +844,9 @@ int main(int argc, char **argv)
             continue;
         }
         apkenv_add_sopath(shlib->dirname);
+        printf("DEBUG: Loading %s...\n", shlib->filename); fflush(stdout);
         lib->lib = apkenv_android_dlopen(shlib->filename,RTLD_LAZY);
+        printf("DEBUG: Loaded %s: %p\n", shlib->filename, lib->lib); fflush(stdout);
         if (!(lib->lib)) {
             printf("Missing library dependencies.\n");
             return 0;
@@ -863,7 +866,11 @@ int main(int argc, char **argv)
     global.libraries = head;
 
 #if defined(APKENV_STATIC_MODULES)
+    printf("DEBUG: STATIC_MODULES block reached\n"); fflush(stdout);
     {
+        /* Manual xplane registration */
+        extern int apkenv_module_init_xplane(int, struct SupportModule*);
+        init_module(apkenv_module_init_xplane, "xplane (manual)");
         struct StaticModuleInit *cur = apkenv_static_modules;
         while (cur != NULL) {
             init_module(cur->init, cur->name);
@@ -907,6 +914,7 @@ int main(int argc, char **argv)
     /* Search for a suitable module to handle the library */
     struct SupportModule *module = global.support_modules;
     while (module != NULL) {
+        printf("DEBUG: trying module %s\n", module->filename); fflush(stdout);
         if (module->try_init(module)) {
             break;
         }

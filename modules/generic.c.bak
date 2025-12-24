@@ -28,35 +28,66 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  **/
 
-#include "liblog_wrappers.h"
+/**
+ * Generic support module - can be used as a template for new modules
+ * This module does not do anything useful, except for calling JNI_OnLoad
+ **/
 
-int
-my__android_log_print(int prio, const char *tag, const char **fmt, ...)
+#include "common.h"
+
+struct SupportModulePriv {
+    jni_onload_t JNI_OnLoad;
+};
+static struct SupportModulePriv generic_priv;
+
+static int
+generic_try_init(struct SupportModule *self)
 {
-    va_list ap;
-    va_start(ap, fmt);
-    int result = vprintf((const char *)fmt, ap);
-    va_end(ap);
-    result += printf("\n");
-    return result;
+    self->priv->JNI_OnLoad = (jni_onload_t)LOOKUP_M("JNI_OnLoad");
+
+    return (self->priv->JNI_OnLoad != NULL);
 }
 
-int
-my__android_log_vprint(int prio, const char *tag, const char **fmt, va_list ap)
+static void
+generic_init(struct SupportModule *self, int width, int height, const char *home)
 {
-    int result = vprintf((const char *)fmt, ap);
-    result += printf("\n");
-    return result;
+    self->priv->JNI_OnLoad(VM_M, NULL);
 }
 
-int
-my__android_log_write(int prio, const char *tag, const char *msg)
+static void
+generic_input(struct SupportModule *self, int event, int x, int y, int finger)
 {
-    return printf("%s\n", msg);
 }
 
+static void
+generic_key_input(struct SupportModule *self, int event, int keycode, int unicode)
+{
+}
 
-// Aliases für direkten Aufruf
-int __android_log_print(int prio, const char *tag, const char *fmt, ...) __attribute__((alias("my__android_log_print")));
-int __android_log_vprint(int prio, const char *tag, const char *fmt, va_list ap) __attribute__((alias("my__android_log_vprint")));
-int __android_log_write(int prio, const char *tag, const char *msg) __attribute__((alias("my__android_log_write")));
+static void
+generic_update(struct SupportModule *self)
+{
+}
+
+static void
+generic_deinit(struct SupportModule *self)
+{
+}
+
+static void
+generic_pause(struct SupportModule *self)
+{
+}
+
+static void
+generic_resume(struct SupportModule *self)
+{
+}
+static int
+generic_requests_exit(struct SupportModule *self)
+{
+    return 0;
+}
+
+APKENV_MODULE(generic, MODULE_PRIORITY_GENERIC)
+

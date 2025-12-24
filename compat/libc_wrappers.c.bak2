@@ -385,7 +385,7 @@ my_gmtime(__const time_t *__timer)
 int
 my_inflate(z_streamp strm, int flush)
 {
-    
+    printf("=== my_inflate called ===\n"); fflush(stdout);
     return inflate(strm, flush);
 }
 int
@@ -403,7 +403,7 @@ my_inflateInit_(z_streamp strm, const char *version, int stream_size)
 int
 my_inflateInit2_(z_streamp strm, int windowBits, const char *version, int stream_size)
 {
-    
+    printf("=== inflateInit2_ windowBits=%d ===\n", windowBits); fflush(stdout);
     return inflateInit2_(strm, windowBits, version, stream_size);
 }
 int
@@ -1168,16 +1168,23 @@ my_ZdaPv(void *ptr)
 }
 
 /* Static initialization guard - simplified */
+
 int
 my___cxa_guard_acquire(int *guard)
-{
     if (*guard) return 0;
     return 1;
+
+
+
+
+    return 1;
 }
+
 void
 my___cxa_guard_release(int *guard)
 {
     *guard = 1;
+    pthread_mutex_unlock(&cxa_guard_mutex);
 }
 
 void

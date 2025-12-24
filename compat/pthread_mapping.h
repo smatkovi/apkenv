@@ -17,7 +17,7 @@
 {"pthread_mutexattr_init", pthread_mutexattr_init},
 {"pthread_mutexattr_destroy", pthread_mutexattr_destroy},
 {"pthread_mutexattr_gettype", pthread_mutexattr_gettype},
-{"pthread_mutexattr_settype", pthread_mutexattr_settype},
+{"pthread_mutexattr_settype", my_pthread_mutexattr_settype},
 {"pthread_mutexattr_getpshared", pthread_mutexattr_getpshared},
 {"pthread_mutexattr_setpshared", apkenv_my_pthread_mutexattr_setpshared},
 {"pthread_condattr_init", pthread_condattr_init},

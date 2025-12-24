@@ -1,4 +1,3 @@
-
 /**
  * apkenv
  * Copyright (c) 2012, Thomas Perl <m@thp.io>
@@ -72,6 +71,7 @@ int apkenv_my_pthread_mutex_unlock(pthread_mutex_t *__mutex);
 int apkenv_my_pthread_mutex_lock_timeout_np(pthread_mutex_t *__mutex, unsigned __msecs);
 int apkenv_my_pthread_mutexattr_setpshared(pthread_mutexattr_t *__attr,
                                            int pshared);
+int my_pthread_mutexattr_settype(pthread_mutexattr_t *attr, int type);
 int apkenv_my_pthread_cond_init(pthread_cond_t *cond,
                                 const pthread_condattr_t *attr);
 int apkenv_my_pthread_cond_destroy(pthread_cond_t *cond);
@@ -101,4 +101,3 @@ int apkenv_my_pthread_rwlock_timedwrlock(pthread_rwlock_t *__rwlock,
                                          __const struct timespec *abs_timeout);
 int apkenv_my_pthread_rwlock_unlock(pthread_rwlock_t *__rwlock);
 int apkenv_my_pthread_setname_np(pthread_t thid, const char *thname);
-
