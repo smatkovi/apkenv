@@ -1,0 +1,15 @@
+ export MADDE_ROOT=/home/sebastian/QtSDK/Madde
+   export TOOLCHAIN=$MADDE_ROOT/toolchains/arm-2009q3-67-arm-none-linux-gnueabi-x86_64-unknown-linux-gnu/arm-2009q3-67
+   export SYSROOT=$MADDE_ROOT/sysroots/harmattan_sysroot_10.2011.34-1_slim
+   export PATH=$TOOLCHAIN/bin:$PATH
+cd ~/Downloads/apkenv-master
+cp ~/Downloads/xplane.c modules/xplane.c
+cp ~/Downloads/jnienv.c jni/jnienv.c
+
+rm -f modules/xplane.o jni/jnienv.o apkenv
+make PLATFORM=harmattan \
+  CC="arm-none-linux-gnueabi-gcc" \
+  CFLAGS="-std=gnu99 -D_GNU_SOURCE -DAPKENV_PREFIX=\\\"/opt/apkenv\\\" -DAPKENV_TARGET=\\\"harmattan\\\" -DAPKENV_GLES -DAPKENV_GLES2 -DGLchar=char -DLINKER_DEBUG=0 -DAPKENV_STATIC_MODULES -march=armv7-a -I${SYSROOT}/usr/include -I${SYSROOT}/usr/include/GLES -I${SYSROOT}/usr/include/SDL" \
+  LDFLAGS="-march=armv7-a --sysroot=${SYSROOT} -L${SYSROOT}/usr/lib -L${SYSROOT}/lib -lz -lGLES_CM -lGLESv2 -lEGL -lSDL -lSDL_mixer-1.2 -lpthread -ldl -lm -Wl,--whole-archive -lgcc -Wl,--no-whole-archive"
+
+scp -oHostKeyAlgorithms=+ssh-rsa apkenv user@192.168.1.6:/home/user/MyDocs/Downloads/
